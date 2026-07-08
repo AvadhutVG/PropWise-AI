@@ -1,9 +1,7 @@
-from src.data.inspect_data import inspect_dataset
-
+from src.data.analyze_columns import analyze_columns
 
 def main():
-    inspect_dataset()
-
+    analyze_columns()
 
 if __name__ == "__main__":
     main()
