@@ -1,7 +1,9 @@
-from src.data.analyze_columns import analyze_columns
+from src.data.clean_data import clean_dataset
+
 
 def main():
-    analyze_columns()
+    clean_dataset()
+
 
 if __name__ == "__main__":
     main()
