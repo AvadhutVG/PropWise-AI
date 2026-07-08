@@ -1,15 +1,8 @@
-from src.data.load_data import load_dataset
+from src.data.inspect_data import inspect_dataset
 
 
 def main():
-
-    df = load_dataset()
-
-    print("\nDataset Loaded Successfully\n")
-
-    print(df.head())
-
-    print("\nShape:", df.shape)
+    inspect_dataset()
 
 
 if __name__ == "__main__":
