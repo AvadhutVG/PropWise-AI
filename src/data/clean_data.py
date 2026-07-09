@@ -1,3 +1,4 @@
+from pathlib import Path
 from src.data.load_data import load_dataset
 
 
@@ -31,7 +32,6 @@ def clean_dataset():
     df = df.dropna(subset=["total_sqft"])
 
     # Remove rows with missing critical values
-    # Remove rows with missing critical values
     df = df.dropna(subset=["location", "size", "bath"])
 
 # Create BHK feature
@@ -39,6 +39,11 @@ def clean_dataset():
 
     print(f"Final Shape : {df.shape}")
 
-    print(df[["size", "bhk"]].head(10))
+    duplicates = df.duplicated().sum()
+    print(f"\nDuplicate Rows : {duplicates}")
+
+    df = df.drop_duplicates()
+
+    print(f"Shape After Removing Duplicates : {df.shape}")
 
     return df

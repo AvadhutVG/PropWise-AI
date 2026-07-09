@@ -1,9 +1,4 @@
-from src.data.clean_data import clean_dataset
-
-
-def main():
-    clean_dataset()
-
+from src.pipelines.training_pipeline import run_pipeline
 
 if __name__ == "__main__":
-    main()
+    run_pipeline()
