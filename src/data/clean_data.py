@@ -19,18 +19,26 @@ def clean_dataset():
 
     df = load_dataset()
 
-    # Create cleaned sqft column
+    print(f"Initial Shape : {df.shape}")
+
+    # Remove society column
+    df = df.drop(columns=["society"])
+
+    # Clean total_sqft
     df["total_sqft"] = df["total_sqft"].apply(convert_total_sqft)
 
-    original_rows = len(df)
-
-    # Remove rows with invalid sqft
+    # Remove invalid sqft
     df = df.dropna(subset=["total_sqft"])
 
-    removed_rows = original_rows - len(df)
+    # Remove rows with missing critical values
+    # Remove rows with missing critical values
+    df = df.dropna(subset=["location", "size", "bath"])
 
-    print(f"Original Rows : {original_rows}")
-    print(f"Removed Rows  : {removed_rows}")
-    print(f"Remaining Rows: {len(df)}")
+# Create BHK feature
+    df["bhk"] = df["size"].str.split().str[0].astype(int)
+
+    print(f"Final Shape : {df.shape}")
+
+    print(df[["size", "bhk"]].head(10))
 
     return df
