@@ -2,16 +2,13 @@ from flask import jsonify, request
 
 from src.prediction.utils import get_available_locations
 from src.prediction.predictor import predict_price
-
+from flask import jsonify, request, render_template
 
 def register_routes(app):
 
     @app.route("/")
     def home():
-        return jsonify({
-            "message": "Welcome to PropWise-AI API",
-            "status": "running"
-        })
+        return render_template("index.html")
 
     @app.route("/locations")
     def locations():

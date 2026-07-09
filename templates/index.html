@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PropWise-AI</title>
+
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <i class="fa-solid fa-house"></i>
+            <span>PropWise-AI</span>
+        </div>
+
+        <nav>
+
+            <a href="#estimate">Estimate</a>
+
+            <a href="#about">About</a>
+
+            <a href="https://github.com/AvadhutVG/PropWise-AI" target="_blank">
+
+                GitHub
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <p class="tag">
+
+                Machine Learning • Bangalore Housing Market
+
+            </p>
+
+            <h1>
+
+                Estimate property value in seconds.
+
+            </h1>
+
+            <p class="subtitle">
+
+                PropWise-AI predicts residential property prices using a
+                Ridge Regression model trained on cleaned Bangalore housing
+                market data.
+
+            </p>
+
+            <a href="#estimate" class="hero-btn">Start Estimating</a>
+
+        </div>
+
+    </section>
+    <section class="trust-section">
+
+        <div class="trust-card">
+
+            <i class="fa-solid fa-database"></i>
+
+            <h3>Data-Driven</h3>
+
+            <p>
+                Trained on thousands of residential property listings from Bangalore after extensive data cleaning.
+            </p>
+
+        </div>
+
+        <div class="trust-card">
+
+            <i class="fa-solid fa-gears"></i>
+
+            <h3>Feature Engineered</h3>
+
+            <p>
+                Duplicate removal, outlier detection, one-hot encoding, and feature engineering improve prediction
+                quality.
+            </p>
+
+        </div>
+
+        <div class="trust-card">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3>Evaluated Model</h3>
+
+            <p>
+                Ridge Regression achieved the best performance with an R² score of <strong>81.14%</strong>.
+            </p>
+
+        </div>
+
+    </section>
+    <section id="estimate" class="app-section">
+
+        <div class="app-grid">
+
+            <!-- LEFT PANEL -->
+
+            <div class="form-card">
+
+                <h2>Property Details</h2>
+
+                <p class="card-subtitle">
+                    Enter your property's information to estimate its market value.
+                </p>
+
+                <form id="prediction-form" autocomplete="off">
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Location
+                        </label>
+
+                        <select id="location">
+                            <option>Loading...</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fa-solid fa-ruler-combined"></i>
+                                Total Sqft
+                            </label>
+
+                            <input type="number" id="sqft" placeholder="1500">
+                            <small class="error" id="sqft-error"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fa-solid fa-bed"></i>
+                                Bedrooms
+                            </label>
+
+                            <input type="number" id="bhk" placeholder="3">
+
+                            <small class="error" id="bhk-error"></small>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fa-solid fa-bath"></i>
+                                Bathrooms
+                            </label>
+
+                            <input type="number" id="bath" placeholder="2">
+
+                            <small class="error" id="bath-error"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fa-solid fa-building"></i>
+                                Balcony
+                            </label>
+
+                            <input type="number" id="balcony" placeholder="1">
+
+                            <small class="error" id="balcony-error"></small>
+                        </div>
+
+                    </div>
+
+                    <button class="predict-btn" type="submit">
+
+                        Estimate Property Value
+
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- RIGHT PANEL -->
+
+            <div class="result-card">
+                <div class="result-card">
+
+                    <p class="result-label">
+                        Estimated Market Value
+                    </p>
+
+                    <h1 id="result">
+                        ₹ ---
+                    </h1>
+
+                    <p id="price-unit" class="price-unit">
+                        Awaiting property details
+                    </p>
+
+                    <hr>
+
+                    <div class="info">
+
+                        <div>
+
+                            <span>Model</span>
+
+                            <strong>Ridge Regression</strong>
+
+                        </div>
+
+                        <div>
+
+                            <span>Accuracy</span>
+
+                            <strong>81.14% R²</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+    </section>
+
+    <section id="about" class="about-section">
+
+        <div class="about-container">
+
+            <h2>About PropWise-AI</h2>
+
+            <p class="about-text">
+                PropWise-AI is a machine learning web application that estimates residential
+                property prices in Bangalore. The prediction model is trained on a cleaned
+                housing dataset using Ridge Regression after feature engineering, outlier
+                removal, and one-hot encoding.
+            </p>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <h3>9,851</h3>
+                    <p>Properties Used</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>231</h3>
+                    <p>Locations</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>81.14%</h3>
+                    <p>R² Score</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Ridge</h3>
+                    <p>Best Model</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <h3>PropWise-AI</h3>
+
+                <p>
+                    AI-powered property valuation for Bangalore using
+                    Machine Learning.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#estimate">Estimate</a>
+
+                <a href="#about">About</a>
+
+                <a href="https://github.com/AvadhutVG/PropWise-AI" target="_blank">
+
+                    GitHub
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="copyright">
+
+            © 2026 PropWise-AI • Built by Avi
+
+        </p>
+
+    </footer>
+</body>
+
+</html>
