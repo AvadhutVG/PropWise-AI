@@ -220,9 +220,21 @@ http://127.0.0.1:5000
 
 ## 📸 Screenshots
 
-Coming Soon
+### Homepage
+
+![Homepage](screenshots/homepage.png)
 
 ---
+
+### Prediction Form
+
+![Form](screenshots/filled-form.png)
+
+---
+
+### Prediction Result
+
+![Prediction](screenshots/prediction.png)
 
 ## 🚀 Future Improvements
 
