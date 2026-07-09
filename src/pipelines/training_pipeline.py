@@ -9,6 +9,8 @@ from src.outliers.bathroom_outliers import remove_bathroom_outliers
 from src.training.prepare_data import prepare_features
 from src.training.split_data import split_data
 from src.training.train import train_models
+from src.training.save_model import save_model
+from src.training.save_columns import save_columns
 
 def run_pipeline():
 
@@ -25,14 +27,20 @@ def run_pipeline():
     #analyze_locations(df)
     X, y = prepare_features(df)
 
+    save_columns(X.columns)
+
     X_train, X_test, y_train, y_test = split_data(X, y)
 
-    results = train_models(
-        X_train,
-        X_test,
-        y_train,
-        y_test
-    )
+    X_train, X_test, y_train, y_test = split_data(X, y)
+
+    best_model, best_model_name, results = train_models(
+    X_train,
+    X_test,
+    y_train,
+    y_test
+)
+
+    save_model(best_model, "best_model.joblib")
 
     print("\n========== MODEL COMPARISON ==========")
 
