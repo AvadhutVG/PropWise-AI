@@ -7,8 +7,9 @@ from src.features.location_features import group_rare_locations
 from src.outliers.price_outliers import remove_price_per_sqft_outliers
 from src.outliers.price_outliers import remove_price_per_sqft_outliers
 from src.outliers.bathroom_outliers import remove_bathroom_outliers
-from src.models.prepare_data import prepare_features
-from src.models.train_test_split import split_data
+from src.training.prepare_data import prepare_features
+from src.training.split_data import split_data
+from src.training.train import train_baseline_model
 
 def run_pipeline():
 

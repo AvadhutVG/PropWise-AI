@@ -1,5 +1,5 @@
-from src.models.train_linear_regression import train_linear_regression
-from src.models.evaluate_model import evaluate_model
+from src.training.models.linear_regression import train_linear_regression
+from src.training.evaluate import evaluate_model
 
 
 def train_baseline_model(X_train, X_test, y_train, y_test):
