@@ -3,6 +3,7 @@ from src.training.models.lasso_regression import train_lasso_regression
 from src.training.models.ridge_regression import train_ridge_regression
 from src.training.models.decision_tree import train_decision_tree
 from src.training.evaluate import evaluate_model
+from src.training.tuning.grid_search import tune_decision_tree
 
 def train_models(X_train, X_test, y_train, y_test):
     """
@@ -13,7 +14,7 @@ def train_models(X_train, X_test, y_train, y_test):
     "Linear Regression": train_linear_regression,
     "Lasso Regression": train_lasso_regression,
     "Ridge Regression": train_ridge_regression,
-    "Decision Tree": train_decision_tree,
+    "Tuned Decision Tree": tune_decision_tree,
     }
 
     results = {}
