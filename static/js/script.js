@@ -241,3 +241,168 @@ form.addEventListener("submit", async function (event) {
     }
 
 });
+
+/* ================= PIPELINE ANIMATION ================= */
+
+const pipelineSection = document.querySelector(".insights-section");
+
+if (pipelineSection) {
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                const steps = document.querySelectorAll(".step");
+                const arrows = document.querySelectorAll(".arrow");
+
+                steps.forEach((step, index) => {
+
+                    setTimeout(() => {
+
+                        step.classList.add("active");
+
+                        if (arrows[index]) {
+                            arrows[index].classList.add("active");
+                        }
+
+                    }, index * 450);
+
+                });
+
+                observer.disconnect();
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.35
+
+    });
+
+    observer.observe(pipelineSection);
+
+}
+
+/* ================= MODEL COMPARISON CHART ================= */
+
+const ctx = document.getElementById("comparisonChart");
+
+if (ctx) {
+
+    new Chart(ctx, {
+
+        type: "bar",
+
+        data: {
+
+            labels: [
+
+                "Linear",
+
+                "Lasso",
+
+                "Ridge",
+
+                "Decision Tree"
+
+            ],
+
+            datasets: [{
+
+                label: "R² Score",
+
+                data: [
+
+                    0.8061,
+
+                    0.7765,
+
+                    0.8114,
+
+                    0.7402
+
+                ],
+
+                backgroundColor: [
+
+                    "#94a3b8",
+
+                    "#94a3b8",
+
+                    "#2563eb",
+
+                    "#94a3b8"
+
+                ],
+
+                borderRadius: 10,
+
+                borderSkipped: false
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            animation: {
+
+                duration: 1800
+
+            },
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                },
+
+                tooltip: {
+
+                    callbacks: {
+
+                        label: function (context) {
+
+                            return "R² = " + context.raw;
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: false,
+
+                    min: 0.70,
+
+                    max: 0.85,
+
+                    ticks: {
+
+                        stepSize: 0.02
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+}

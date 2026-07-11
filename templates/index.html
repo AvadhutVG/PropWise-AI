@@ -211,42 +211,151 @@
             <!-- RIGHT PANEL -->
 
             <div class="result-card">
-                <div class="result-card">
 
-                    <p class="result-label">
-                        Estimated Market Value
-                    </p>
+                <p class="result-label">
+                    Estimated Market Value
+                </p>
 
-                    <h1 id="result">
-                        ₹ ---
-                    </h1>
+                <h1 id="result">
+                    ₹ ---
+                </h1>
 
-                    <p id="price-unit" class="price-unit">
-                        Awaiting property details
-                    </p>
+                <p id="price-unit" class="price-unit">
+                    Awaiting property details
+                </p>
 
-                    <hr>
+                <hr>
 
-                    <div class="info">
+                <div class="info">
 
-                        <div>
-
-                            <span>Model</span>
-
-                            <strong>Ridge Regression</strong>
-
-                        </div>
-
-                        <div>
-
-                            <span>Accuracy</span>
-
-                            <strong>81.14% R²</strong>
-
-                        </div>
-
+                    <div>
+                        <span>Model</span>
+                        <strong>Ridge Regression</strong>
                     </div>
 
+                    <div>
+                        <span>Accuracy</span>
+                        <strong>81.14% R²</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= Model Insights ================= -->
+
+            <section class="insights-section">
+
+                <h2>Model Insights</h2>
+
+                <p class="insight-subtitle">
+                    Every prediction is generated using an end-to-end Machine Learning pipeline.
+                </p>
+
+                <div class="pipeline">
+
+                    <div class="step">
+                        <div class="circle">1</div>
+                        <span>Dataset</span>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="step">
+                        <div class="circle">2</div>
+                        <span>Cleaning</span>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="step">
+                        <div class="circle">3</div>
+                        <span>Feature Engineering</span>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="step">
+                        <div class="circle">4</div>
+                        <span>Encoding</span>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="step">
+                        <div class="circle">5</div>
+                        <span>Training</span>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="step">
+                        <div class="circle">6</div>
+                        <span>Best Model</span>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="step">
+                        <div class="circle">7</div>
+                        <span>Prediction</span>
+                    </div>
+
+                </div>
+
+            </section>
+            <div class="chart-card">
+
+                <h3>Model Comparison (R² Score)</h3>
+
+                <canvas id="comparisonChart"></canvas>
+
+            </div>
+            <div class="explain-card">
+
+                <h3>How Price is Estimated</h3>
+
+                <p>
+                    PropWise-AI estimates property prices using a Ridge Regression model trained on cleaned Bangalore
+                    housing data.
+                    The prediction is based on five key inputs:
+                </p>
+
+                <ul>
+                    <li><strong>Location</strong> – One-hot encoded to capture locality-specific trends.</li>
+                    <li><strong>Total Area (sq.ft.)</strong> – Larger homes generally command higher prices.</li>
+                    <li><strong>BHK</strong> – Represents the number of bedrooms.</li>
+                    <li><strong>Bathrooms</strong> – Additional bathrooms often increase property value.</li>
+                    <li><strong>Balconies</strong> – Included as an additional lifestyle feature.</li>
+                </ul>
+
+                <p>
+                    Before deployment, multiple regression algorithms were evaluated. Ridge Regression achieved the
+                    highest R² score (0.8114) and was selected as the final production model.
+                </p>
+
+            </div>
+            <div class="metrics-grid">
+
+                <div class="metric-card">
+                    <h4>🏆 Best Model</h4>
+                    <h2>Ridge Regression</h2>
+                </div>
+
+                <div class="metric-card">
+                    <h4>🎯 R² Score</h4>
+                    <h2>0.8114</h2>
+                </div>
+
+                <div class="metric-card">
+                    <h4>📉 MAE</h4>
+                    <h2>20.44</h2>
+                </div>
+
+                <div class="metric-card">
+                    <h4>📊 RMSE</h4>
+                    <h2>39.48</h2>
                 </div>
 
             </div>
@@ -336,11 +445,14 @@
 
         <p class="copyright">
 
-            © 2026 PropWise-AI • Built by Avadhut V G 
+            © 2026 PropWise-AI • Built by Avadhut V. Gore & Piyush R. Bedekar
 
         </p>
 
     </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
